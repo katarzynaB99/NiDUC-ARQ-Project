@@ -1,6 +1,10 @@
 function [ decoded_signal, error_count ] = parity_bit_decoder( signal, k )
-%PARITY_BIT_DECODER Summary of this function goes here
-%   Detailed explanation goes here
+%PARITY_BIT_DECODER Dekoder sygnalu z bitem parzystosci
+%   signal - sygnal wejsciowy
+%   k - dlugosc bitow w czesci
+%   decoded_signal - odkodowany sygnal
+%   error_count - liczba wykrytych bledow
+
     signal_length = length(signal);
     decoded_signal = [];
     error_count = 0;

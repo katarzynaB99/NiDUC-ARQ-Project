@@ -1,6 +1,8 @@
 function [encoded_signal] = parity_bit_encoder(signal,k)
-%PARITY_BIT_ENCODER Summary of this function goes here
+%PARITY_BIT_ENCODER Koder bitu parzystosci
+%   Bit parzystosci zostaje dodany co k bitow (na koniec kazdej czesci)
 %   k - ilosc bitow w czesci
+%   encoded_signal - zakodowany sygnal
     signal_length = length(signal);
     encoded_signal = [];
     one_count = 0;
