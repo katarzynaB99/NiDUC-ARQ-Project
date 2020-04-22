@@ -4,6 +4,6 @@ function [ signal ] = signal_generator( n )
 %   signal - wygenerowany sygnal
 
     signal = randi([0,1], 1, n);
-    disp(signal);
+    
 end
 

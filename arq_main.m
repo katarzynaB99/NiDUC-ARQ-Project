@@ -93,5 +93,6 @@ function [ time_taken, bit_error_rate, total_redundancy] = arq_main( signal_leng
     %disp(total_redundancy);
     %disp(code_type);
     %disp(channel_type);
+    
 end
 
