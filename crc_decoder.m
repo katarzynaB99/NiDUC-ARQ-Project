@@ -1,7 +1,7 @@
-function [outputArg1,outputArg2] = crc_decoder(inputArg1,inputArg2)
+function [decoded_ginal, error] = crc_decoder(signal)
 %CRC_DECODER Summary of this function goes here
 %   Detailed explanation goes here
-outputArg1 = inputArg1;
-outputArg2 = inputArg2;
-end
+poly = [1 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 0 1 1 0 1 1 1];
+[decoded_ginal, error] = nrCRCDecode(signal, poly);
 
+end

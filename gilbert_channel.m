@@ -1,6 +1,6 @@
 function [output_signal] = gilbert_channel(input_signal,p_dz,p_zd)
-%GILBERT_CHANNEL Funkcja generujaca zaklocenia w sygnale z zadanym
-%                prawdopodobienstwem zmiany stanu
+%GILBERT_CHANNEL Funkcja generujaca zaklocenia w sygnale z zadanymi
+%                prawdopodobienstwami zmiany stanu
 %   input_signal - sygnal wejsciowy
 %   p_dz - prawdopodobienstwo przejscia ze stanu dobrego do zlego
 %   p_zd - prawdopodobienstwo przejscia ze stanu zlego do dobrego
