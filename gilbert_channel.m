@@ -1,11 +1,12 @@
 function [output_signal] = gilbert_channel(input_signal,p_dz,p_zd)
-%GILBERT_CHANNEL Funkcja generujaca zaklucenia w sygnale z zadanami
-%                prawdopodobienstwami zmiany stanu
+%GILBERT_CHANNEL Funkcja generujaca zaklocenia w sygnale z zadanym
+%                prawdopodobienstwem zmiany stanu
 %   input_signal - sygnal wejsciowy
 %   p_dz - prawdopodobienstwo przejscia ze stanu dobrego do zlego
 %   p_zd - prawdopodobienstwo przejscia ze stanu zlego do dobrego
 %   output_signal - sygnal koncowy z losowymi zakloceniami
-%   state - stan w ktorym jest uklad; 0 -> stan dobry, 1 -> stan zly
+%   state - stan, w ktorym jest uklad; 0 -> stan dobry, 1 -> stan zly
+
     signal_length = length(input_signal);
     output_signal = zeros(1, signal_length);
     state = 0;
