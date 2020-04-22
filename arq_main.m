@@ -88,10 +88,10 @@ function [ time_taken, bit_error_rate, total_redundancy] = arq_main( signal_leng
     time_taken = toc;
     bit_error_rate = bit_error_rate / sent_bits_sum;
     
-    disp(time_taken);
-    disp(bit_error_rate);
-    disp(total_redundancy);
-    disp(code_type);
-    disp(channel_type);
+    %disp(time_taken);
+    %disp(bit_error_rate);
+    %disp(total_redundancy);
+    %disp(code_type);
+    %disp(channel_type);
 end
 
