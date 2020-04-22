@@ -1,7 +1,13 @@
-function [decoded_ginal, error] = crc_decoder(signal)
+function [decoded_signal, error] = crc_decoder(signal)
 %CRC_DECODER Summary of this function goes here
 %   Detailed explanation goes here
-poly = [1 0 0 0 0 0 1 0 0 1 1 0 0 0 0 0 1 0 0 0 1 1 1 0 1 1 0 1 1 0 1 1 1];
-[decoded_ginal, error] = nrCRCDecode(signal, poly);
-
+    signal_length = length(signal);
+    decoded_signal = signal(1:signal_length-32);
+    sum_copy = signal(signal_length-31:signal_length);
+    signal = crc_coder(signal(1:signal_length-32));
+    if sum_copy == signal(signal_length-31:signal_length)
+        error = 0;
+    else
+        error = 1;
+    end
 end
