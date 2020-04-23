@@ -1,4 +1,4 @@
-function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_main( signal_length, code_type, coding_param, channel_type, first_probability, second_probability )
+function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_main( signal_length, max_attempts, code_type, coding_param, channel_type, first_probability, second_probability )
 %ARQ_MAIN Summary of this function goes here
 %   Detailed explanation goes here
     bit_error_rate = 0;
@@ -28,7 +28,6 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
     
     encoded_signal_length = length(encoded_signal);
     
-    status = 100;
     error = 0;
     received_signal = [];
     decoded_signal = [];
@@ -36,7 +35,7 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
     attempts_taken = 0
     if channel_type == '1'
         %KBS
-        while status
+        while max_attempts
             [received_signal, error_number] = KBS_channel(encoded_signal, first_probability);
             bit_error_rate = bit_error_rate + error_number;
             sent_bits_sum = sent_bits_sum + encoded_signal_length;
@@ -54,16 +53,16 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
             end
             
             if error == 0
-                status = 0;
+                max_attempts = 0;
             else
-                status = status - 1;
+                max_attempts = max_attempts - 1;
             end
             attempts_taken = attempts_taken + 1;
         end
         
     else
         %Gilbert
-        while status
+        while max_attempts
             [received_signal, error_number] = gilbert_channel(encoded_signal, first_probability, second_probability);
             bit_error_rate = bit_error_rate + error_number;
             sent_bits_sum = sent_bits_sum + encoded_signal_length;
@@ -81,9 +80,9 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
             end
             
             if error == 0
-                status = 0;
+                max_attempts = 0;
             else
-                status = status - 1;
+                max_attempts = max_attempts - 1;
             end
             attempts_taken = attempts_taken + 1;
         end
