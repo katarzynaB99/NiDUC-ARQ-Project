@@ -1,4 +1,4 @@
-function [ time_taken, bit_error_rate, total_redundancy] = arq_main( signal_length, code_type, coding_param, channel_type, first_probability, second_probability )
+function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_main( signal_length, code_type, coding_param, channel_type, first_probability, second_probability )
 %ARQ_MAIN Summary of this function goes here
 %   Detailed explanation goes here
     bit_error_rate = 0;
@@ -33,6 +33,7 @@ function [ time_taken, bit_error_rate, total_redundancy] = arq_main( signal_leng
     received_signal = [];
     decoded_signal = [];
     error_number = 0;
+    attempts_taken = 0
     if channel_type == '1'
         %KBS
         while status
@@ -57,6 +58,7 @@ function [ time_taken, bit_error_rate, total_redundancy] = arq_main( signal_leng
             else
                 status = status - 1;
             end
+            attempts_taken = attempts_taken + 1;
         end
         
     else
@@ -83,6 +85,7 @@ function [ time_taken, bit_error_rate, total_redundancy] = arq_main( signal_leng
             else
                 status = status - 1;
             end
+            attempts_taken = attempts_taken + 1;
         end
     end
     time_taken = toc;
