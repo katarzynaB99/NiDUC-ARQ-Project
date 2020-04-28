@@ -25,6 +25,7 @@ CRC, czyli cykliczny kod nadmiarowy, to rodzaj sumy kontrolnej o stałej długo�
 ## Parametry wejściowe
 Aplikacja udostępnia interfejs graficzny, w którym można uzupełnić parametry, według których sygnał ma być wygenerowany i przesłany.
 - **Długość sygnału** - dodatnia liczba całkowita;
+- **Maksymalna ilość prób przesłania** - dodatnia liczba całkowita. W przypadku wystąpienia błędu, tyle razy będzie podejmowana próba przesłania sygnału (ograniczenie wprowadzone, aby proces nie trwał w nieskończoność, szczególnie w przypadku wysokiego prawdopodobieństwa wystąpienia błędu)
 - **Rodzaj kodowania** - do wyboru: "Bit parzystości", "Suma kontrolna" oraz "CRC32"
 - **Parametr kodowania** - w przypadku wyboru bitu parzystości jako rodzaj kodowania, oznacza długość części, na jakie zostanie podzielony sygnał. Jeżeli wybrano sumę kontrolną, wartość pola będzie odpowiadała długości sumy kontrolnej dołączonej na koniec sygnału. Dla wyboru kodowania CRC32 parametr nie jest brany pod uwagę i nie musi być uzupełniony
 - **Rodzaj kanału** - do wyboru: "Kanał KBS" oraz "Kanał Gilberta"
