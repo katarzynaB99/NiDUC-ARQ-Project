@@ -1,4 +1,4 @@
-function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_main( signal_length, max_attempts, code_type, coding_param, channel_type, first_probability, second_probability, third_probability, fourth_probability )
+function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_main( signal_length, max_attempts, code_type, coding_param, channel_type, first_probability, second_probability )
 %ARQ_MAIN Summary of this function goes here
 %   Detailed explanation goes here
     bit_error_rate = 0;
@@ -69,7 +69,6 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
         while max_attempts
             disp(attempts_taken);
             [received_signal, error_number] = gilbert_channel(encoded_signal, first_probability, second_probability);
-            [received_signal, error_number] = gilbert_channel(encoded_signal, first_probability, second_probability, third_probability, fourth_probability);
             bit_error_rate = bit_error_rate + error_number;
             sent_bits_sum = sent_bits_sum + encoded_signal_length;
             if code_type == '1'

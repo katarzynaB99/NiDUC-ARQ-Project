@@ -12,7 +12,7 @@ function [output_signal, generated_errors] = KBS_channel(input_signal, error_pro
     
     % generowanie zaklocen
     for i=1:signal_length
-        x = randi(100000);
+        x = randi(100);
         if le(x, error_probability)
             %przeklamanie bitu
             generated_errors = generated_errors + 1;
