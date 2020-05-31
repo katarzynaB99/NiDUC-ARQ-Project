@@ -31,11 +31,11 @@ Aplikacja udostępnia interfejs graficzny, w którym można uzupełnić parametr
 - **Rodzaj kanału** - do wyboru: "Kanał KBS" oraz "Kanał Gilberta"
 - **Prawdopodobieństwo 1** - Jeżeli wybrany rodzaj kanału to kanał KBS, wartość parametru oznacza prawdopodobieństwo wystąpienia błędu dla danego bitu. Dla kanału Gilberta będzie to parametr odpowiadający prawdopodobieństwu przejścia ze stanu D do Z (PDZ). Wartość wpisana w to pole musi być należeć do przedziału [0, 100000].
 - **Prawdopodobieństwo 2** - Dla kanału Gilberta parametr odpowiada prawdopodobieństwu przejścia ze stanu Z do D (PZD). W przypadku kanału KBS pole nie jest brane pod uwagę i nie musi być uzupełnione. Wartość wpisana w to pole musi być należeć do przedziału [0, 100000].
-- **Prawdopodobieństwo 3** - Dla kanału Gilberta parametr odpowiada prawdopodobieństwu wystąpienia błędu w stanie dobrym (PD). W przypadku kanału KBS pole nie jest brane pod uwagę i nie musi być uzupełnione. Wartość wpisana w to pole musi być należeć do przedziału [0, 100000].
+- **Prawdopodobieństwo 3** - Dla kanału Gilberta parametr odpowiada prawdopodobieństwu nie wystąpienia błędu w stanie dobrym (PD). W przypadku kanału KBS pole nie jest brane pod uwagę i nie musi być uzupełnione. Wartość wpisana w to pole musi być należeć do przedziału [0, 100000].
 - **Prawdopodobieństwo 4** - Dla kanału Gilberta parametr odpowiada prawdopodobieństwu wystąpienia błędu w stanie złym (PZ). W przypadku kanału KBS pole nie jest brane pod uwagę i nie musi być uzupełnione. Wartość wpisana w to pole musi być należeć do przedziału [0, 100000].
 ## Parametry wyjściowe
 W wyniku działania programu zwracane są 4 wartości:
 - **Czas transmisji (s)** - łączny czas trwania transmisji sygnału o zadanych parametrach
 - **Całkowita nadmiarowość** - całkowita nadmiarowość sygnału o zadanych parametrach
-- **Bit Error Rate (BER)** - stosunek ilości przekłamać do liczby przesłanych bitów.
+- **Bit Error Rate (BER)** - stosunek ilości przekłamań do liczby przesłanych bitów.
 - **Ilość prób przesłania** - ilość podjętych prób przesłania sygnału, równoznaczna z ilością prób, w których przesłany sygnał zawierał błędy
