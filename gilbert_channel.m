@@ -1,4 +1,4 @@
-function [output_signal, error_number] = gilbert_channel(input_signal,p_dz,p_zd)
+function [output_signal, error_number] = gilbert_channel(input_signal,p_dz,p_zd,p_d,p_z)
 %GILBERT_CHANNEL Funkcja generujaca zaklocenia w sygnale z zadanymi
 %                prawdopodobienstwami zmiany stanu
 %   input_signal - sygnal wejsciowy
@@ -22,17 +22,29 @@ function [output_signal, error_number] = gilbert_channel(input_signal,p_dz,p_zd)
                 state = 1;
             end
         end
-        
+        x = randi(100);
         if state
-            error_number = error_number + 1;
-            if input_signal == 1
-                output_signal(i) = 0;
+            if x > p_z
+                output_signal(i) = input_signal(i);
             else
-                output_signal(i) = 1;
+                error_number = error_number + 1;
+                if input_signal == 1
+                    output_signal(i) = 0;
+                else
+                    output_signal(i) = 1;
+                end
             end
         else
-            output_signal(i) = input_signal(i);
+            if x > p_d
+                output_signal(i) = input_signal(i);
+            else
+                error_number = error_number + 1;
+                if input_signal == 1
+                    output_signal(i) = 0;
+                else
+                    output_signal(i) = 1;
+                end
+            end
         end
     end
 end
-
