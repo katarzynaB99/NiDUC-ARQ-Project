@@ -12,19 +12,21 @@ function [output_signal, error_number] = gilbert_channel(input_signal,p_dz,p_zd,
     output_signal = zeros(1, signal_length);
     state = 0;
     for i = 1:signal_length
-        x = randi(100);
+        %określanie czy nastąpiła zmiana stanu
+        x = randi(100000);
         if state
-            if x>p_zd
+            if le(x, p_zd)
                 state = 0;
             end
         else
-            if x>p_dz
+            if le(x, p_dz)
                 state = 1;
             end
         end
-        x = randi(100);
+        x = randi(100000);
         if state
-            if x > p_z
+            %określanie przekłamania w stanie złym
+            if le(x, p_z)
                 output_signal(i) = input_signal(i);
             else
                 error_number = error_number + 1;
@@ -35,7 +37,8 @@ function [output_signal, error_number] = gilbert_channel(input_signal,p_dz,p_zd,
                 end
             end
         else
-            if x > p_d
+            %określanie przekłamania w stanie dobrym
+            if le(x, p_d)
                 output_signal(i) = input_signal(i);
             else
                 error_number = error_number + 1;
