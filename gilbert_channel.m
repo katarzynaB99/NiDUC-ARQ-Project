@@ -27,14 +27,14 @@ function [output_signal, error_number] = gilbert_channel(input_signal,p_dz,p_zd,
         if state
             %określanie przekłamania w stanie złym
             if le(x, p_z)
-                output_signal(i) = input_signal(i);
-            else
                 error_number = error_number + 1;
                 if input_signal == 1
                     output_signal(i) = 0;
                 else
                     output_signal(i) = 1;
                 end
+            else
+                output_signal(i) = input_signal(i);
             end
         else
             %określanie przekłamania w stanie dobrym
