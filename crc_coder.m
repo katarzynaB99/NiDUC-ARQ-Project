@@ -6,6 +6,6 @@ crc32 = comm.CRCGenerator('Polynomial', poly);
 signal = signal.';
 encoded_signal = crc32(signal);
 encoded_signal = encoded_signal.';
-disp(encoded_signal);
+%disp(encoded_signal);
 end
 

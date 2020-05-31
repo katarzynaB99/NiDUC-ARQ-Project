@@ -39,7 +39,7 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
     if channel_type == '1'
         %KBS
         while max_attempts
-            disp(attempts_taken);           
+            %disp(attempts_taken);           
             [received_signal, error_number] = KBS_channel(encoded_signal, first_probability);
             bit_error_rate = bit_error_rate + error_number;
             sent_bits_sum = sent_bits_sum + encoded_signal_length;
@@ -67,8 +67,8 @@ function [ time_taken, bit_error_rate, total_redundancy, attempts_taken ] = arq_
     else
         %Gilbert
         while max_attempts
-            disp(attempts_taken);
-            [received_signal, error_number] = gilbert_channel(encoded_signal, first_probability, second_probability);
+            %disp(attempts_taken);
+            [received_signal, error_number] = gilbert_channel(encoded_signal, first_probability, second_probability, third_probability, fourth_probability);
             [received_signal, error_number] = gilbert_channel(encoded_signal, first_probability, second_probability, third_probability, fourth_probability);
             bit_error_rate = bit_error_rate + error_number;
             sent_bits_sum = sent_bits_sum + encoded_signal_length;
