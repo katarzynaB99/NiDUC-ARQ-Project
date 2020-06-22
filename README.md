@@ -1,5 +1,6 @@
 # Projekt NiDUC 2 - Symulator systemu ARQ
 Aplikacja służąca do symulacji działania systemu ARQ.
+Szczegółowa dokumentacja, opis projektu i analiza wyniku znajduje się w pliku ***Raport_z_projektu_NiDUC***
 ## Uruchomienie
 Do otwarcia programu wymagane jest środowisko MATLAB z zainstalowanym pakietem Communications Toolbox.
 Aby go uruchomić, należy wybrać plik arq_gui.mlapp i wcisnąć przycisk Run lub F5.
